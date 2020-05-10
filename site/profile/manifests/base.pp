@@ -1,5 +1,6 @@
 class profile::base {
-  user { 'admin':
+  $default_account = [ 'admin', 'dev' ]
+  user { $default_account:
     ensure => present,
   }
 }
