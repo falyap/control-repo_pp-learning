@@ -2,7 +2,7 @@ class profile::ssh_server {
   package { 'openssh-server':
     ensure => installed,
   }
-  service { 'ssh':
+  service { 'sshd':
     ensure => running,
     enable => true,
   }
