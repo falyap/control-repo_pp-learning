@@ -3,4 +3,5 @@ class profile::base {
   user { $default_account:
     ensure => present,
   }
+  include profile::ssh_server
 }
