@@ -7,7 +7,7 @@ class minecraft (
   }
   file { "${install_dir}/minecraft_server.jar":
     ensure  => file,
-    source  => $url,
+    source  => "${url}",
     require => File[$install_dir],
   }
   package { 'java':
