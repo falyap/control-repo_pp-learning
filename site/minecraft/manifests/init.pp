@@ -8,7 +8,7 @@ class minecraft (
   file { "${install_dir}/minecraft_server.jar":
     ensure  => file,
     source  => $url,
-    require => File['/opt/minecraft'],
+    require => File[$install_dir],
   }
   package { 'java':
     ensure => installed,
@@ -16,7 +16,7 @@ class minecraft (
   file { "${install_dir}/eula.txt":
     ensure  => file,
     content => 'eula=true',
-    require => File['/opt/minecraft/minecraft_server.jar'],
+    require => File["${install_dir}/minecraft_server.jar"],
   }
   file { '/etc/systemd/system/minecraft.service':
     ensure  => file,
